@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.0.5" use-changelog="false" last-position="50,0" last-zoom="0.7" max-obj-count="15"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<role name="pg_database_owner"
+ inherit="true"
+ password="********"
+ sql-disabled="true">
+</role>
+
+<database name="postgres" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8" is-template="false" allow-conns="true" sql-disabled="true">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+	<comment> <![CDATA[default administrative connection database]]> </comment>
+</database>
+
+<schema name="public" layers="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="django_migrations" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="580" y="0"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="app" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="applied" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<constraint name="django_migrations_pkey" type="pk-constr" table="public.django_migrations">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="django_migrations_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="django_content_type" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="940" y="1160"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="app_label" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="model" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="django_content_type_pkey" type="pk-constr" table="public.django_content_type">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="django_content_type_app_label_model_76bd3d3b_uniq" type="uq-constr" table="public.django_content_type">
+		<columns names="app_label,model" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="django_content_type_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="auth_permission" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2480" y="260"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="255"/>
+	</column>
+	<column name="content_type_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codename" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="auth_permission_pkey" type="pk-constr" table="public.auth_permission">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="auth_permission_content_type_id_codename_01ab375a_uniq" type="uq-constr" table="public.auth_permission">
+		<columns names="content_type_id,codename" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="auth_permission_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="auth_group" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="940" y="960"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="150"/>
+	</column>
+	<constraint name="auth_group_pkey" type="pk-constr" table="public.auth_group">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="auth_group_name_key" type="uq-constr" table="public.auth_group">
+		<columns names="name" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="auth_group_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="auth_group_permissions" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3360" y="80"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="group_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="permission_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="auth_group_permissions_pkey" type="pk-constr" table="public.auth_group_permissions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq" type="uq-constr" table="public.auth_group_permissions">
+		<columns names="group_id,permission_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="auth_group_permissions_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="auth_user" layers="0" collapse-mode="2" max-obj-count="13" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="780" y="200"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="character varying" length="128"/>
+	</column>
+	<column name="last_login">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="is_superuser" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="username" not-null="true">
+		<type name="character varying" length="150"/>
+	</column>
+	<column name="first_name" not-null="true">
+		<type name="character varying" length="150"/>
+	</column>
+	<column name="last_name" not-null="true">
+		<type name="character varying" length="150"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="character varying" length="254"/>
+	</column>
+	<column name="is_staff" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="is_active" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="date_joined" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<constraint name="auth_user_pkey" type="pk-constr" table="public.auth_user">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="auth_user_username_key" type="uq-constr" table="public.auth_user">
+		<columns names="username" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="auth_user_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="auth_user_groups" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="760"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="user_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="group_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="auth_user_groups_pkey" type="pk-constr" table="public.auth_user_groups">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="auth_user_groups_user_id_group_id_94350c0c_uniq" type="uq-constr" table="public.auth_user_groups">
+		<columns names="user_id,group_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="auth_user_groups_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<table name="auth_user_user_permissions" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1440" y="20"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="user_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="permission_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="auth_user_user_permissions_pkey" type="pk-constr" table="public.auth_user_user_permissions">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" type="uq-constr" table="public.auth_user_user_permissions">
+		<columns names="user_id,permission_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="auth_user_user_permissions_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="9223372036854775807" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<index name="auth_permission_content_type_id_2f476e4b" table="public.auth_permission"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="content_type_id"/>
+		</idxelement>
+</index>
+
+<index name="auth_group_permissions_group_id_b120cbf9" table="public.auth_group_permissions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="group_id"/>
+		</idxelement>
+</index>
+
+<index name="auth_group_permissions_permission_id_84c5c92e" table="public.auth_group_permissions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="permission_id"/>
+		</idxelement>
+</index>
+
+<index name="auth_user_groups_user_id_6a12ed8b" table="public.auth_user_groups"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="user_id"/>
+		</idxelement>
+</index>
+
+<index name="auth_user_groups_group_id_97559544" table="public.auth_user_groups"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="group_id"/>
+		</idxelement>
+</index>
+
+<index name="auth_user_user_permissions_user_id_a95ead1b" table="public.auth_user_user_permissions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="user_id"/>
+		</idxelement>
+</index>
+
+<index name="auth_user_user_permissions_permission_id_1fbb5f2c" table="public.auth_user_user_permissions"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="permission_id"/>
+		</idxelement>
+</index>
+
+<table name="django_admin_log" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1980" y="700"/>
+	<column name="id" not-null="true"
+	 identity-type="BY DEFAULT" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="action_time" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="object_id">
+		<type name="text" length="0"/>
+	</column>
+	<column name="object_repr" not-null="true">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="action_flag" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="change_message" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="content_type_id">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="user_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="django_admin_log_action_flag_check" type="ck-constr" table="public.django_admin_log">
+			<expression> <![CDATA[(action_flag >= 0)]]> </expression>
+	</constraint>
+	<constraint name="django_admin_log_pkey" type="pk-constr" table="public.django_admin_log">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="django_admin_log_id_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+</sequence>
+
+<index name="django_admin_log_content_type_id_c4bce8eb" table="public.django_admin_log"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="content_type_id"/>
+		</idxelement>
+</index>
+
+<index name="django_admin_log_user_id_c564eba6" table="public.django_admin_log"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="user_id"/>
+		</idxelement>
+</index>
+
+<index name="auth_user_username_6821ab7c_like" table="public.auth_user"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="username"/>
+		</idxelement>
+</index>
+
+<index name="auth_group_name_a6ea08ec_like" table="public.auth_group"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="name"/>
+		</idxelement>
+</index>
+
+<table name="django_session" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="60"/>
+	<column name="session_key" not-null="true">
+		<type name="character varying" length="40"/>
+	</column>
+	<column name="session_data" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="expire_date" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<constraint name="django_session_pkey" type="pk-constr" table="public.django_session">
+		<columns names="session_key" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="django_session_session_key_c0390e0f_like" table="public.django_session"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="session_key"/>
+		</idxelement>
+</index>
+
+<index name="django_session_expire_date_a5c62663" table="public.django_session"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="expire_date"/>
+		</idxelement>
+</index>
+
+<table name="location" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1540" y="300"/>
+	<column name="id" not-null="true">
+		<type name="uuid" length="0"/>
+	</column>
+	<column name="address">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="coordinates" not-null="true">
+		<type name="point" length="0"/>
+	</column>
+	<column name="city" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="state" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="nation" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<constraint name="location_pk" type="pk-constr" table="public.location">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="coordinates" table="public.location"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="gist" factor="0">
+		<idxelement use-sorting="false">
+			<column name="coordinates"/>
+		</idxelement>
+</index>
+
+<index name="location_index" table="public.location"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="0">
+		<idxelement use-sorting="false">
+			<column name="city"/>
+		</idxelement>
+		<idxelement use-sorting="false">
+			<column name="state"/>
+		</idxelement>
+		<idxelement use-sorting="false">
+			<column name="nation"/>
+		</idxelement>
+</index>
+
+<relationship name="location_has_one_auth_user" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#62ab92"
+	 src-table="public.auth_user"
+	 dst-table="public.location"
+	 src-required="false" dst-required="false"/>
+
+<table name="contacts" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1540" y="700"/>
+	<column name="id" not-null="true">
+		<type name="uuid" length="0"/>
+	</column>
+	<column name="type" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="contact" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<constraint name="contacts_pk" type="pk-constr" table="public.contacts">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="auth_user_has_many_contacts" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#5fd61f"
+	 src-table="public.auth_user"
+	 dst-table="public.contacts"
+	 src-required="false" dst-required="false"/>
+
+<table name="ordereds" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="140" y="280"/>
+	<column name="id" not-null="true">
+		<type name="uuid" length="0"/>
+	</column>
+	<column name="create_time" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="update_time" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="status" not-null="true">
+		<type name="char" length="0"/>
+	</column>
+	<constraint name="ordereds_pk" type="pk-constr" table="public.ordereds">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="ordereds_has_one_auth_user" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3d10c0"
+	 src-table="public.auth_user"
+	 dst-table="public.ordereds"
+	 src-required="false" dst-required="false"/>
+
+<constraint name="auth_permission_content_type_id_2f476e4b_fk_django_co" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.django_content_type"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.auth_permission">
+	<columns names="content_type_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.auth_group"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.auth_group_permissions">
+	<columns names="group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="auth_group_permissio_permission_id_84c5c92e_fk_auth_perm" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.auth_permission"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.auth_group_permissions">
+	<columns names="permission_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.auth_user"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.auth_user_groups">
+	<columns names="user_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="auth_user_groups_group_id_97559544_fk_auth_group_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.auth_group"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.auth_user_groups">
+	<columns names="group_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.auth_user"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.auth_user_user_permissions">
+	<columns names="user_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.auth_permission"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.auth_user_user_permissions">
+	<columns names="permission_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="django_admin_log_content_type_id_c4bce8eb_fk_django_co" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.django_content_type"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.django_admin_log">
+	<columns names="content_type_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="django_admin_log_user_id_c564eba6_fk_auth_user_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.auth_user"
+	deferrable="true" defer-type="INITIALLY DEFERRED"
+ table="public.django_admin_log">
+	<columns names="user_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_auth_permission_django_content_type" type="relfk" layers="0"
+	 custom-color="#d207aa"
+	 src-table="public.auth_permission"
+	 dst-table="public.django_content_type" reference-fk="auth_permission_content_type_id_2f476e4b_fk_django_co"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_auth_group_permissions_auth_group" type="relfk" layers="0"
+	 custom-color="#4fb941"
+	 src-table="public.auth_group_permissions"
+	 dst-table="public.auth_group" reference-fk="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_auth_group_permissions_auth_permission" type="relfk" layers="0"
+	 custom-color="#ab4587"
+	 src-table="public.auth_group_permissions"
+	 dst-table="public.auth_permission" reference-fk="auth_group_permissio_permission_id_84c5c92e_fk_auth_perm"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_auth_user_groups_auth_user" type="relfk" layers="0"
+	 custom-color="#2a429b"
+	 src-table="public.auth_user_groups"
+	 dst-table="public.auth_user" reference-fk="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_auth_user_groups_auth_group" type="relfk" layers="0"
+	 custom-color="#2dcfbf"
+	 src-table="public.auth_user_groups"
+	 dst-table="public.auth_group" reference-fk="auth_user_groups_group_id_97559544_fk_auth_group_id"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_auth_user_user_permissions_auth_user" type="relfk" layers="0"
+	 custom-color="#bd8a5c"
+	 src-table="public.auth_user_user_permissions"
+	 dst-table="public.auth_user" reference-fk="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_auth_user_user_permissions_auth_permission" type="relfk" layers="0"
+	 custom-color="#d8ef19"
+	 src-table="public.auth_user_user_permissions"
+	 dst-table="public.auth_permission" reference-fk="auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_django_admin_log_django_content_type" type="relfk" layers="0"
+	 custom-color="#442cca"
+	 src-table="public.django_admin_log"
+	 dst-table="public.django_content_type" reference-fk="django_admin_log_content_type_id_c4bce8eb_fk_django_co"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_django_admin_log_auth_user" type="relfk" layers="0"
+	 custom-color="#658768"
+	 src-table="public.django_admin_log"
+	 dst-table="public.auth_user" reference-fk="django_admin_log_user_id_c564eba6_fk_auth_user_id"
+	 src-required="false" dst-required="true">
+	<label ref-type="name-label">
+		<position x="-120.873" y="12.709"/>
+	</label>
+</relationship>
+
+<permission>
+	<object name="public" type="schema"/>
+	<roles names="pg_database_owner"/>
+	<privileges create="true" usage="true"/>
+</permission>
+<permission>
+	<object name="public" type="schema"/>
+	<privileges usage="true"/>
+</permission>
+</dbmodel>
