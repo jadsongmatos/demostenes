@@ -1,0 +1,54 @@
+{% extends "master.html" %}
+{% block title %} Produtos{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="position-relative">
+  <img src="{% static 'header.jpg' %}" alt="Avatar" class="img-fluid" />
+  <div
+    class="position-absolute top-50 start-50 translate-middle container my-auto text-center"
+  >
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="text-uppercase text-light">
+          demostenes, Busca eficiente e&nbsp; INteligente
+        </h1>
+        <hr />
+      </div>
+    </div>
+    <div class="col-lg-8 mx-auto">
+      <p class="text-faded mb-5">
+        <span style="color: rgb(255, 255, 255); background-color: transparent"
+          >Esta plataforma visa simplificar o acesso a informações jurídicas
+          como processos, decisões e legislações, oferecendo aos usuários uma
+          base de dados extensa e bem organizada.</span
+        >
+      </p>
+      <a
+        class="btn btn-primary btn-xl rounded-pill"
+        role="button"
+        href="cadastro.html"
+        >Assine ja!</a
+      >
+    </div>
+    <div class="col">
+      <p class="text-light" style="padding-top: 0px; margin-top: 34px">
+        Ja tem conta?&nbsp;<a
+          class="btn btn-xl btn-outline-light"
+          role="button"
+          href="Login.html"
+          style="
+            height: 30px;
+            padding: 0px;
+            font-size: 10px;
+            padding-top: 6px;
+            width: 50px;
+          "
+          >Entrar</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

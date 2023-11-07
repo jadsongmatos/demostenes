@@ -1,13 +1,13 @@
 from django.db import models
 import uuid
 
-from django.contrib.gis.db import models as gis_models
 from django.contrib.auth.models import User
 
 class Location(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     address = models.CharField(max_length=255, blank=True, null=True)
-    coordinates = gis_models.PointField()
+    latitude = models.FloatField()
+    longitude = models.FloatField()
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     nation = models.CharField(max_length=255)
@@ -17,7 +17,7 @@ class Contact(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     type = models.CharField(max_length=255, null=False, blank=False)
     contact = models.CharField(max_length=255, null=False, blank=False)
-    auth_user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="locations")
+    auth_user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="contact")
 
 
 class Ordereds(models.Model):
@@ -25,7 +25,7 @@ class Ordereds(models.Model):
     create_time = models.DateField(auto_now_add=True)
     update_time = models.DateField(auto_now=True)
     status = models.CharField(max_length=1)
-    auth_user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="locations")
+    auth_user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="ordereds")
 
 class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
