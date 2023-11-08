@@ -2,7 +2,6 @@ from django.db import models
 import uuid
 
 from django.contrib.auth.models import User
-
 class Location(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     address = models.CharField(max_length=255, blank=True, null=True)

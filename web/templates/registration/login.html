@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+{% load static %}
+{% load bootstrap5 %}
+
+<div class="position-relative">
+  <img
+    src="{% static 'header.jpg' %}"
+    alt="Avatar"
+    class="img-fluid"
+    style="max-height: 100%; min-width: 100%; object-fit: cover;"
+  />
+  <div
+    class="position-absolute top-50 start-50 translate-middle container my-auto text-center"
+  >
+    <div class="container text-center">
+      <div class="d-flex align-items-center py-4 bg-body-tertiary">
+        <main class="col-6 m-auto">
+          <h1 class="h3 mb-3 fw-normal">BEM VINDO!</h1>
+          <form role="form" method="post">
+            {% csrf_token %} {% bootstrap_form form %} {% buttons %}
+            <button type="submit" class="btn btn-primary py-2 rounded-pill">
+              Entrar!
+            </button>
+            {% endbuttons %}
+          </form>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
