@@ -1,0 +1,39 @@
+{% extends "master.html" %}
+{% block title %}Configuracoes{% endblock %}
+{% block content %}
+{% load static %}
+{% load bootstrap5 %}
+
+<div class="position-relative">
+  <img
+    src="{% static 'header.jpg' %}"
+    alt="Avatar"
+    class="img-fluid"
+    style="max-height: 100%; min-width: 100%; object-fit: cover;"
+  />
+  <div
+    class="position-absolute top-50 start-50 translate-middle container my-auto text-center"
+  >
+    <div class="container text-center">
+      <div class="d-flex align-items-center py-4 bg-body-tertiary">
+        <main class="col-6 m-auto">
+          <h1 class="h3 mb-3 fw-normal">Configurações</h1>
+        </main>
+
+          <div cass="text-center" style= "columns: 2 auto;"> 
+              <p>Nome: </p> 
+              <p>Sobrenome: </p> 
+          </div>
+
+          <div cass="text-center" style= "columns: 2 auto;">
+              <p>Email: </p>
+              <p>Senha: </p> 
+              <a class= "text-center; position-center" href="/accounts/login/" class="btn btn-outline-primary me-2">Alterar Dados</a>
+          </div>
+
+      </div>
+        <div> <h1 class="">Historico do plano</h1></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

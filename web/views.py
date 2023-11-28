@@ -32,6 +32,10 @@ def home(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
+def home(request):
+    template = loader.get_template('home.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 
 def products(request):
     products = Product.objects.all().values()
