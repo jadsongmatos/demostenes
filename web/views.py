@@ -32,9 +32,13 @@ def home(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
-def home(request):
-    template = loader.get_template('home.html')
-    context = {}
+def profile(request):
+    template = loader.get_template('profile.html')
+    lista= {}
+    context = {
+        'nome':  'user.first_name',
+        'sobrenome': 'user.last_name'
+    }
     return HttpResponse(template.render(context, request))
 
 def products(request):

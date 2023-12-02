@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% block title %}Configuracoes{% endblock %}
+{% block title %}profile{% endblock %}
 {% block content %}
 {% load static %}
 {% load bootstrap5 %}
@@ -17,22 +17,42 @@
     <div class="container text-center">
       <div class="d-flex align-items-center py-4 bg-body-tertiary">
         <main class="col-6 m-auto">
-          <h1 class="h3 mb-3 fw-normal">Configurações</h1>
-        </main>
-
-          <div cass="text-center" style= "columns: 2 auto;"> 
+          <h1 class="h3 mb-3 fw-normal" style= "padding-button: 100px ">Configurações</h1>
+       
+          <div cass="text-center" style= "">
+            <div cass="text-center" style= "columns: 2 auto;">
               <p>Nome: </p> 
+                {{nome}}
+                
+            </div>
+            <div cass="text-center" style= "columns: 2 auto;">
               <p>Sobrenome: </p> 
+          
+                {{sobrenome}}
+            </div>
           </div>
-
+  
           <div cass="text-center" style= "columns: 2 auto;">
               <p>Email: </p>
               <p>Senha: </p> 
-              <a class= "text-center; position-center" href="/accounts/login/" class="btn btn-outline-primary me-2">Alterar Dados</a>
-          </div>
+              <div>
+                
+
+                <div>
+                  <a class= "text-center; position-center" href="" class="btn btn-outline-primary me-2">Alterar Dados</a>
+                </div>
+                
+          
+        </div>
+      </div>
+
+      <div> <h1 class="">Historico do plano</h1></div>
 
       </div>
-        <div> <h1 class="">Historico do plano</h1></div>
+        
+
+      </main>
+
     </div>
   </div>
 </div>
