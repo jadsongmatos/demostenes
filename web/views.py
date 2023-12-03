@@ -1,11 +1,13 @@
 from django.http import HttpResponse
 from django.template import loader
 from .models import Product
-
+from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm
 from django.contrib.auth.models import User
+#from .models import Pagamentos
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -34,7 +36,6 @@ def home(request):
 
 def profile(request):
     template = loader.get_template('profile.html')
-    lista= {}
     context = {
         'nome':  'user.first_name',
         'sobrenome': 'user.last_name'
@@ -49,3 +50,9 @@ def products(request):
         'products': products,
     }
     return HttpResponse(template.render(context, request))
+
+     
+def listPagamento(request): 
+    template = loader.get_template('profile.html')
+    listPagamento = Pagamentos.objects.all()
+    return render(request, 'profile.html', {'pagamentos': Pagamentos})

@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 import re
 
 
+
 class LoginForm(forms.Form):
 
     email_regex = r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
