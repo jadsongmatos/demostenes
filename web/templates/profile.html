@@ -23,21 +23,9 @@
        
             <div cass="text-center; " style= "">
               <div cass="text-center" style= "">
-                <p>Nome: {{nome}} <i class="bi bi-lock-fill"></i> </p> 
-                <tr>
-                  {%for cliente in cliente%}
-                    <td>{{first_name}} </td>
-                  {%endfor%}
-                </tr>
+                <p>Nome: {{ user.username }} <i class="bi bi-lock-fill"></i> </p> 
               </div>
-              <div cass="text-center; " style= "">
-                <p>Sobrenome: {{sobrenome}} <i class="bi bi-lock-fill"></i>  </p>
-                <tr>
-                  {%for cliente in cliente%}
-                    <td>{{cliente.last_name}} </td>
-                  {%endfor%}
-                </tr>
-              </div>
+             
             </div>
 
             <div class= "position-center; text-center;" style="padding-bottom: 50px;">
@@ -58,16 +46,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  
                     {%for pagamentos in pagamentos%}
+                    <tr>
                       <td>{{pagamentos.id_pedido}} </td>
+                      <td>ola</td>
                       <td>{{pagamentos.id_projeto}} </td>
                       <td>{{pagamentos.notas}}</td>
                       <td>{{pagamentos.datas}} </td>
                       <td>{{pagamentos.valor}}</td>
                       <td>{{pagamentos.meio_pagamento}}</td>
+                    </tr>
                     {%endfor%}
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>   
