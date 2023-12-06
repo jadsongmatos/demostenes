@@ -1,32 +1,27 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Product
+
+
 from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
 from django.contrib.auth.models import User
+
+from .forms import LoginForm
+from .models import Product
+
 #from .models import Pagamentos
 
+#from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            try:
-                user = User.objects.get(email = form.cleaned_data.get('email'))
-                password = form.cleaned_data.get('password')
-                user = authenticate(request,username=user.username, password=password)
-                print("----is_valid",user)
-                if user is not None:
-                    login(request, user)
+from .forms import UserCreationWithEmailForm
 
-                    return redirect('home')  # Redirecione para a página desejada
-            except:
-                return redirect('home')
-    else:
-        form = LoginForm()
-    return render(request, 'login.html', {'form': form})
+class SignUpView(generic.CreateView):
+    form_class = UserCreationWithEmailForm
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
 
 
 def home(request):
