@@ -9,7 +9,7 @@
     src="{% static 'header.jpg' %}"
     alt="Avatar"
     class="img-fluid"
-    style="max-height: 100%; min-width: 100%; object-fit: cover;"
+    style="max-height: 100%; min-width: 100%; object-fit: cover"
   />
   <div
     class="position-absolute top-50 start-50 translate-middle container my-auto text-center"
@@ -23,15 +23,20 @@
             <button type="submit" class="btn btn-primary py-2 rounded-pill">
               Entrar!
             </button>
-            <p> </p>
-            <a href="pay/" class="btn btn-outline-primary me-2">Esqueceu a conta?</a>
-            <p> </p>
-            <p class="loginp">Ainda não tem conta?
-            <button type="submit" class="btn btn-primary py-2 rounded-pill; border: none;">
-              Cadastrar-se!
-            </button> </p>
             {% endbuttons %}
           </form>
+          <a href="{% url 'password_reset' %}"  class="btn btn-outline-primary mb-3">
+            Esqueceu a conta?
+          </a>
+          <p class="loginp">
+            Ainda não tem conta?
+            <a
+              href=""
+              class="btn btn-primary py-2 rounded-pill border-0"
+            >
+              Cadastrar-se!
+          </a>
+          </p>
         </main>
       </div>
     </div>

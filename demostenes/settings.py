@@ -58,7 +58,7 @@ LOGIN_REDIRECT_URL = '/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'demostenes', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'web', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,6 +73,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'demostenes.wsgi.application'
 
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "jadsom2000hotmail@gmail.com"
+EMAIL_HOST_PASSWORD = "ydvmcdaozezzukaj"
+DEFAULT_FROM_EMAIL = "jadsom2000hotmail@gmail.com"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
