@@ -6,7 +6,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm
 from django.contrib.auth.models import User
-#from .models import Pagamentos
 
 
 def user_login(request):
@@ -40,6 +39,21 @@ def profile(request):
         'nome':  'user.first_name',
         'sobrenome': 'user.last_name'
     }
+    return HttpResponse(template.render(context, request))
+
+def pay(request):
+    template = loader.get_template('pay.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def payErro(request):
+    template = loader.get_template('payErro.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def payConfirm(request):
+    template = loader.get_template('payConfirm.html')
+    context = {}
     return HttpResponse(template.render(context, request))
 
 def products(request):

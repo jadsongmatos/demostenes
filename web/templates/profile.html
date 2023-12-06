@@ -19,75 +19,63 @@
     <div class="container text-center">
       <div class="d-flex align-items-center py-4 bg-body-tertiary">
         <main class="col-6 m-auto">
-          <h1 class="h3 mb-3 fw-normal" style= "padding-button: 150px ">Configurações</h1>
+          <h1 class="h3 mb-3 fw-normal" style= "padding-bottom: 10px ">Configurações</h1>
        
-            <div cass="text-center; " style= "padding-button: 150px">
+            <div cass="text-center; " style= "">
               <div cass="text-center" style= "">
                 <p>Nome: {{nome}} <i class="bi bi-lock-fill"></i> </p> 
                 <tr>
-                  <th>first_name </th>
-                </tr>
-                <tr>
-                  
+                  {%for cliente in cliente%}
                     <td>{{first_name}} </td>
-                    
+                  {%endfor%}
                 </tr>
-
               </div>
               <div cass="text-center; " style= "">
                 <p>Sobrenome: {{sobrenome}} <i class="bi bi-lock-fill"></i>  </p>
                 <tr>
-                  <th>last_name </th>
-                </tr>
-                <tr>
-                  
-                    <td>{{last_name}} </td>
-                 
+                  {%for cliente in cliente%}
+                    <td>{{cliente.last_name}} </td>
+                  {%endfor%}
                 </tr>
               </div>
             </div>
-    
-            <div cass="text-center" style= "columns: 2 auto;">
-                <p>Email: </p>
-                <p>Senha: </p> 
-            <div>
-            <div class= "position-center;">
-                    <a class= "text-center;" href="" class="btn btn-outline-primary me-2">Alterar Dados</a>
+
+            <div class= "position-center; text-center;" style="padding-bottom: 50px;">
+                    <a class= "text-center;" href="" class="btn btn-outline-primary me-2">Alterar Dados de Login</a>
             </div>
-          </div>
-        </div>
-
-
-      <div> 
-        <h1 class="" style= "font-size: 25px">Historico do plano</h1></div>
-          <div>
-            <table>
-              <tr>
-                <th>id_pedido</th>
-                <th>id_projeto</th>
-                <th>notas</th>
-                <th>datas</th>
-                <th>valor</th>
-                <th>meio_pagamento</th>
-              </tr>
-              <tr>
-                {%for pagamentos in pagamentos%}
-                  <td>{{pagamentos.id_pedido}} </td>
-                  <td>{{pagamentos.id_projeto}} </td>
-                  <td>{{pagamentos.notas}}</td>
-                  <td>{{pagamentos.datas}} </td>
-                  <td>{{pagamentos.valor}}</td>
-                  <td>{{pagamentos.meio_pagamento}}</td>
-                {%endfor%}
-              </tr>
-            </table>
+        <div> 
+          <h1 class="h3 mb-3 fw-normal; text-center" style= "font-size: 25px">Historico do plano</h1>
+            <div class= "tabela; " style= "position-center; text-align: center;  border-spacing:10px ">
+              <table class= "text-center; align-center" style= " align-center; ">
+                <thead>
+                  <tr>
+                    <th>id_pedido</th>
+                    <th>id_projeto</th>
+                    <th>notas</th>
+                    <th>datas</th>
+                    <th>valor</th>
+                    <th>meio_pagamento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {%for pagamentos in pagamentos%}
+                      <td>{{pagamentos.id_pedido}} </td>
+                      <td>{{pagamentos.id_projeto}} </td>
+                      <td>{{pagamentos.notas}}</td>
+                      <td>{{pagamentos.datas}} </td>
+                      <td>{{pagamentos.valor}}</td>
+                      <td>{{pagamentos.meio_pagamento}}</td>
+                    {%endfor%}
+                  </tr>
+                </tbody>
+              </table>
+            </div>   
           </div>     
-      </div>
-        
 
       </main>
-
     </div>
+   </div>
   </div>
 </div>
 {% endblock %}
