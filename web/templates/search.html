@@ -7,11 +7,24 @@
 <main class="container my-5 py-5">
   <div class="row py-5 my-5">
     <div class="col-6 m-auto">
-      <form action="/search/" method="post" class="form">
+      <form action="/search/" method="post">
         {% csrf_token %} {% bootstrap_form form %} {% buttons %}
         <button type="submit" class="btn btn-primary">Buscar</button>
         {% endbuttons %}
       </form>
+      {% if docs %}
+        <ol class="list-group list-group-numbered">
+          {% for doc in docs %}
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">{{ doc.0 }}</div>
+              {{ doc.2 }}
+            </div>
+            <span class="badge bg-primary rounded-pill">{{ doc.1 }}</span>
+          </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
     </div>
   </div>
 </main>

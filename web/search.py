@@ -24,7 +24,16 @@ model = BigBirdModel.from_pretrained("google/bigbird-roberta-base",
                                     #attention_type="block_sparse"
                                     )
 
-def search(content):
+conn = duckdb.connect(database='jus.duckdb', read_only=True)
+
+def summarizer(id):
+    with open("./web/static/proc/"+str(id)+".txt", 'r') as arquivo:
+        content = arquivo.readline()
+        content = content+arquivo.readline()
+        content = content+arquivo.readline()
+        return content
+
+def search_db(content):
 
     translatedText = argostranslate.translate.translate(content, "pt", "en")
 
@@ -35,9 +44,7 @@ def search(content):
 
     norma = float(np.linalg.norm(vetor))
 
-    conn = duckdb.connect(database='jus.duckdb', read_only=True)
-
-    test = conn.execute("""
+    docs = conn.execute("""
     WITH my_embedding AS (
     SELECT 0 AS id,$data AS data
     UNION ALL
@@ -104,18 +111,20 @@ def search(content):
             d.idA < d.idB
     )
     SELECT 
-        idA,
         idB,
         cosine_similarity
     FROM 
         CosineSimilarities
     WHERE 
-        idA = 0
+        cosine_similarity > 0.2 and idA = 0
     ORDER BY 
         cosine_similarity DESC;
     """,{
-    "data": vetor,
-    "norma": norma
+        "data": vetor,
+        "norma": norma
     }).df()
 
-    return test
+    docs['cosine_similarity'] = docs['cosine_similarity'].round(2)
+    docs['summarizer'] = docs['idB'].apply(lambda x: summarizer(x))
+
+    return docs.to_numpy().tolist()
