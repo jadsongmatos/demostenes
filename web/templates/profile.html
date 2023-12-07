@@ -18,12 +18,12 @@
         <main class="col-6 m-auto">
           <h1 class="h3 mb-3 fw-normal" style= "padding-bottom: 10px; font-size:30px">Configurações</h1>
        
-            <div cass="text-center; " style= "">
-                <p>Nome: {{ user.username }} <i class="bi bi-lock-fill"></i> </p> 
+            <div cass="text-center;  " style= "">
+                <p class= "" style="font-size:17px"> Nome: {{ user.username }} <i class="bi bi-lock-fill"></i> </p> 
               </div>
              
             <div class= "position-center; text-center;" style="padding-bottom: 50px;">
-                    <a href="{% url 'password_reset' %}" class= "btn btn-outline-primary me-2" >
+                    <a href="{% url 'password_reset' %}" class= "btn btn-primary py-2 rounded-pill border-0" >
                       Alterar Dados de Login</a>
             </div>
 
