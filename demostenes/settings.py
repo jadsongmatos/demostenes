@@ -99,11 +99,10 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',   # Set to the address of your PostgreSQL
-        'PORT': '5433',            # Leave as an empty string to use the default port
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

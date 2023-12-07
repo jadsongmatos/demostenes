@@ -29,6 +29,17 @@ def home(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
+def docs(request,id):
+    template = loader.get_template('docs.html')
+
+    with open('./web/static/proc/'+str(id)+'.txt', 'r') as file:
+        file_content = file.read()
+    context = {
+        'id': id,
+        'file_content':file_content
+    }
+    return HttpResponse(template.render(context, request))
+
 def search(request):
     if request.method == "POST":
         form = SearchForm(request.POST)

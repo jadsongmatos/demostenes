@@ -1,0 +1,14 @@
+{% extends "master.html" %}
+
+{% load bootstrap5 %} 
+{% block title %}Docs{% endblock %} 
+{% block content %}
+
+<main class="container my-5 py-5">
+  <div class="row py-5 my-5">
+    <div class="col-10 m-auto">
+      <p style="text-align: justify;">{{ file_content }}</p>
+    </div>
+  </div>
+</main>
+{% endblock %}

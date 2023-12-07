@@ -1,14 +1,6 @@
 {% extends "master.html" %}
 {% load static %}
-{# Load the tag library #}
 {% load bootstrap5 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
 {% block title %}Login{% endblock %}
 {% block content %}
 
@@ -28,18 +20,25 @@
           <h1 class="h3 mb-3 fw-normal">BEM VINDO!</h1>
           <form role="form" method="post">
             {% csrf_token %} {% bootstrap_form form %} {% buttons %}
-            <a href="/search/" class="btn btn-outline-primary me-2"
-          >Entrar</a>
+            <button type="submit" class="btn btn-outline-primary me-2">
+              Entrar
+            </button>
             {% endbuttons %}
           </form>
-          <a href="{% url 'password_reset' %}"  class="btn btn-outline-primary mb-3">
+          <a
+            href="{% url 'password_reset' %}"
+            class="btn btn-outline-primary mb-3"
+          >
             Esqueceu a conta?
           </a>
           <p class="loginp">
             Ainda não tem conta?
-            <a href="{% url 'signup' %}" 
-              class="btn btn-primary py-2 rounded-pill border-0">
-              Cadastrar-se!</a>
+            <a
+              href="{% url 'signup' %}"
+              class="btn btn-primary py-2 rounded-pill border-0"
+            >
+              Cadastrar-se!</a
+            >
           </p>
         </main>
       </div>
