@@ -2,7 +2,7 @@
 {% block title %} Produtos{% endblock %}
 {% block content %}
 {% load static %}
-
+{% load bootstrap5 %}
 
 <div class="position-relative">
   <img src="{% static 'header.jpg' %}" alt="Avatar" class="img-fluid" />
@@ -31,63 +31,73 @@
     <div class="col">
       <p class="text-light" style="padding-top: 0px; margin-top: 34px">
         Ja tem conta?&nbsp;
-        <a href="/accounts/login/" class="btn btn-outline-primary me-2">Entrar</a>
+        <a href="/accounts/login/" class="btn btn-outline-primary me-2"
+          >Entrar</a
+        >
       </p>
     </div>
   </div>
 </div>
 
-
-  <section1 id= "sobre">
+<section id="sobre">
   <div class="container">
-    <div class="col-8 mx-auto" style= "padding-top: 170px; padding-bottom: 100px">
-      <h1 class="text1" style= "padding-bottom: 20px">
-        SOBRE
-      </h1>
-      <p class="text-center" style= "font-size: 20px">
-        Demostenes é uma plataforma que utiliza a tecnologia SaaS (Software as a Service) 
-        que permita aos usuários buscar casos jurídicos e documentos relacionados de forma eficiente
-        e inteligente. Esta plataforma visa simplificar o acesso a informações jurídicas como
-        processos, decisões e legislações, oferecendo aos usuários uma base de dados extensa e bem 
-        organizada. A plataforma oferecerá assinaturas pagas para acessar recursos adicionais ou mais
-        avançados.
-      </P>
+    <div
+      class="col-8 mx-auto"
+      style="padding-top: 170px; padding-bottom: 100px"
+    >
+      <h1 class="text1" style="padding-bottom: 20px">SOBRE</h1>
+      <p class="text-center" style="font-size: 20px">
+        Demostenes é uma plataforma que utiliza a tecnologia SaaS (Software as a
+        Service) que permita aos usuários buscar casos jurídicos e documentos
+        relacionados de forma eficiente e inteligente. Esta plataforma visa
+        simplificar o acesso a informações jurídicas como processos, decisões e
+        legislações, oferecendo aos usuários uma base de dados extensa e bem
+        organizada. A plataforma oferecerá assinaturas pagas para acessar
+        recursos adicionais ou mais avançados.
+      </p>
     </div>
   </div>
-</section1>
+</section>
 
-<section2 id="contato"> 
+<section id="contato">
   <div class="text-center">
     <div class="text-center">
-      <div class="col-8 mx-auto" style= "padding-top: 50px; padding-bottom: 50px">
-       <h1 class="text-uppercase" style= "padding-bottom: 20px">
-        FALE CONOSCO!
-       </h1>
-       <hr class= "position-center" style= "border: 0; border-top: 1px; color: #120a8f;">
-      </hr>
-
+      <div
+        class="col-8 mx-auto"
+        style="padding-top: 50px; padding-bottom: 50px"
+      >
+        <h1 class="text-uppercase" style="padding-bottom: 20px">
+          FALE CONOSCO!
+        </h1>
       </div>
     </div>
-    <div class= "text-center; position-center" style= "columns: 2 auto; padding-right: 200px; padding-left: 200px; 
-    padding-bottom:100px">    
-        <div class= "text-center {text-align: center !important" style= "font-size: 20px">
-            <p>Contato</p>
-            <i class="bi bi-telephone-fill" style=""></i>
-            <p class="" style= "padding-top: 20px"> (48) 9123-3332 </p>
-        </div>
+    <div
+      class="text-center; position-center"
+      style="
+        columns: 2 auto;
+        padding-right: 200px;
+        padding-left: 200px;
+        padding-bottom: 100px;
+      "
+    >
+      <div
+        class="text-center {text-align: center !important"
+        style="font-size: 20px"
+      >
+        <p>Contato</p>
+        <i class="bi bi-telephone-fill" style=""></i>
+        <p class="" style="padding-top: 20px">(48) 9123-3332</p>
+      </div>
 
-        <div class= "text-center {text-align: center !important" style= "font-size: 20px">
-            <p>Email </p>
-            <i class="bi bi-envelope"></i>
-            <p class="" style= "padding-top: 20px"> atendimento@demostenes.com </p>
-        </div>
+      <div
+        class="text-center {text-align: center !important"
+        style="font-size: 20px"
+      >
+        <p>Email</p>
+        <i class="bi bi-envelope"></i>
+        <p class="" style="padding-top: 20px">atendimento@demostenes.com</p>
+      </div>
     </div>
-
   </div>
-</section2>
-
-
-
-
-
+</section>
 {% endblock %}

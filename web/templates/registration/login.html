@@ -1,8 +1,16 @@
 {% extends "master.html" %}
+{% load static %}
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 {% block title %}Login{% endblock %}
 {% block content %}
-{% load static %}
-{% load bootstrap5 %}
 
 <div class="position-relative">
   <img
