@@ -17,4 +17,4 @@ class UserCreationWithEmailForm(UserCreationForm):
         return user
 
 class SearchForm(forms.Form):
-    search = forms.CharField(max_length=512)
+    search = forms.CharField(widget=forms.Textarea, max_length=4096)

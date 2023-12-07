@@ -17,6 +17,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from .forms import UserCreationWithEmailForm
+from .search import search_db
 
 class SignUpView(generic.CreateView):
     form_class = UserCreationWithEmailForm
@@ -32,15 +33,18 @@ def search(request):
     if request.method == "POST":
         form = SearchForm(request.POST)
         if form.is_valid():
-            print("is_valid",form.data['search'])
-            render(request, "search.html", {
+            query = form.cleaned_data['search']
+            print("is_valid",query)
+            docs = search_db(query)
+            #print("docs",docs)
+            return render(request, "search.html", {
                 "form": form,
-                "data": [1,1808]
+                "docs": docs
                 })
 
     else:
         form = SearchForm()
-    return render(request, "search.html", {"form": form})
+    return render(request, "search.html", {"form": form,"docs_id": None})
 
 def profile(request):
     template = loader.get_template('profile.html')
