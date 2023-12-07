@@ -28,9 +28,8 @@
           <h1 class="h3 mb-3 fw-normal">BEM VINDO!</h1>
           <form role="form" method="post">
             {% csrf_token %} {% bootstrap_form form %} {% buttons %}
-            <button type="submit" class="btn btn-primary py-2 rounded-pill">
-              Entrar!
-            </button>
+            <a href="/search/" class="btn btn-outline-primary me-2"
+          >Entrar</a>
             {% endbuttons %}
           </form>
           <a href="{% url 'password_reset' %}"  class="btn btn-outline-primary mb-3">
@@ -38,12 +37,9 @@
           </a>
           <p class="loginp">
             Ainda não tem conta?
-            <a
-              href=""
-              class="btn btn-primary py-2 rounded-pill border-0"
-            >
-              Cadastrar-se!
-          </a>
+            <a href="{% url 'signup' %}" 
+              class="btn btn-primary py-2 rounded-pill border-0">
+              Cadastrar-se!</a>
           </p>
         </main>
       </div>

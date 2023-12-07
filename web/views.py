@@ -65,6 +65,11 @@ def payConfirm(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
+def result(request):
+    template = loader.get_template('result.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
 def products(request):
     products = Product.objects.all().values()
     template = loader.get_template('all_members.html')
