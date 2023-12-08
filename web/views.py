@@ -32,7 +32,7 @@ def home(request):
 def docs(request,id):
     template = loader.get_template('docs.html')
 
-    with open('./web/static/proc/'+str(id)+'.txt', 'r') as file:
+    with open('./web/proc/'+str(id)+'.txt', 'r') as file:
         file_content = file.read()
     context = {
         'id': id,

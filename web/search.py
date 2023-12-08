@@ -27,7 +27,7 @@ model = BigBirdModel.from_pretrained("google/bigbird-roberta-base",
 conn = duckdb.connect(database='jus.duckdb', read_only=True)
 
 def summarizer(id):
-    with open("./web/static/proc/"+str(id)+".txt", 'r') as arquivo:
+    with open("./web/proc/"+str(id)+".txt", 'r') as arquivo:
         content = arquivo.readline()
         content = content+arquivo.readline()
         content = content+arquivo.readline()

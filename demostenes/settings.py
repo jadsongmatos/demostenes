@@ -25,8 +25,15 @@ SECRET_KEY = 'django-insecure-w=l5+0+i@no56ys8qz3f1s3q5j=_e+7aow4_8#w__&bz5$byk$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+
+CSRF_COOKIE_DOMAIN = '*'
+CSRF_TRUSTED_ORIGINS = ['https://demostenes.loca.lt']
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 # Application definition
 
@@ -138,6 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
